@@ -10,8 +10,8 @@ export default Ember.Mixin.create({
     be located on the `meta` property of the payload object.
     Example
     ```app/serializers/post.js
-    import JSONSerializerWithMeta from 'ember-json-serializer-meta';
-    export default JSONSerializerWithMeta.extend({
+    import extractMetaQueryResponseMixin from 'ember-json-serializer-meta';
+    export default DS.JSONSerializer.extend(extractMetaQueryResponseMixin, {
       extractMetaQueryResponse(store, typeClass, payload) {
         if (payload && payload._pagination) {
           return payload._pagination;

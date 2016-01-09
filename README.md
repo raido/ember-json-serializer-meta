@@ -30,9 +30,9 @@ So I heard you are working with custom APIs that are not either JSONAPI or REST 
 Here comes in the addon which adds another serializer hook for extracting meta for query responses with JSONSerializer.
 
 ```app/serializers/user.js
-import JSONSerializerWithMeta from 'ember-json-serializer-meta';
+import extractMetaQueryResponseMixin from 'ember-json-serializer-meta';
 
-export default JSONSerializerWithMeta.extend({
+export default DS.JSONSerializer.extend(extractMetaQueryResponseMixin, {
   extractMetaQueryResponse(store, typeClass, payload) {
     if (payload && payload.pagination) {
       return payload.pagination;
