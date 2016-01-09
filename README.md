@@ -1,6 +1,7 @@
 # ember-json-serializer-meta
 
 [![Build Status](https://travis-ci.org/raido/ember-json-serializer-meta.svg)](https://travis-ci.org/raido/ember-json-serializer-meta)
+[![npm version](https://badge.fury.io/js/ember-json-serializer-meta.svg)](https://badge.fury.io/js/ember-json-serializer-meta)
 
 So I heard you are working with custom APIs that are not either JSONAPI or REST but rather something in between, a hybrid. Then this addon is for you! It enables using metadata with query responses.
 
