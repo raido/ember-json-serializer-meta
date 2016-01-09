@@ -6,6 +6,8 @@ So I heard you are working with custom APIs that are not either JSONAPI or REST 
 
 ```ember install ember-json-serializer-meta```
 
+**Works with Ember 1.13+**
+
 ## How it works
 
 ### API response
