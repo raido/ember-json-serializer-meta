@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'json-serializer-meta'
+  name: 'ember-json-serializer-meta'
 };

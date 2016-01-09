@@ -12,7 +12,7 @@ export default JSONSerializer.extend({
     be located on the `meta` property of the payload object.
     Example
     ```app/serializers/post.js
-    import JSONSerializerWithMeta from 'json-serializer-meta';
+    import JSONSerializerWithMeta from 'ember-json-serializer-meta';
     export default JSONSerializerWithMeta.extend({
       extractMetaQueryResponse: function(store, typeClass, payload) {
         if (payload && payload._pagination) {

@@ -3,7 +3,7 @@ import { module } from 'qunit';
 import Ember from 'ember';
 import DS from 'ember-data';
 import setupStore from '../../helpers/store';
-import JSONSerializerWithMeta from 'json-serializer-meta';
+import JSONSerializerWithMeta from 'ember-json-serializer-meta';
 
 const { run } = Ember;
 const { Model, attr } = DS;

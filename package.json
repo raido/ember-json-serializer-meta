@@ -1,5 +1,5 @@
 {
-  "name": "json-serializer-meta",
+  "name": "ember-json-serializer-meta",
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
