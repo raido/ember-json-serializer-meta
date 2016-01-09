@@ -1,4 +1,6 @@
-# Json-serializer-meta
+# ember-json-serializer-meta
+
+[![Build Status](https://travis-ci.org/raido/ember-json-serializer-meta.svg)](https://travis-ci.org/raido/ember-json-serializer-meta)
 
 This README outlines the details of collaborating on this Ember addon.
 
