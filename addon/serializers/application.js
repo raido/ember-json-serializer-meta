@@ -14,7 +14,7 @@ export default JSONSerializer.extend({
     ```app/serializers/post.js
     import JSONSerializerWithMeta from 'ember-json-serializer-meta';
     export default JSONSerializerWithMeta.extend({
-      extractMetaQueryResponse: function(store, typeClass, payload) {
+      extractMetaQueryResponse(store, typeClass, payload) {
         if (payload && payload._pagination) {
           return payload._pagination;
         }

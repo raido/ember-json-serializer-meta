@@ -2,7 +2,58 @@
 
 [![Build Status](https://travis-ci.org/raido/ember-json-serializer-meta.svg)](https://travis-ci.org/raido/ember-json-serializer-meta)
 
-This README outlines the details of collaborating on this Ember addon.
+So I heard you are working with custom APIs that are not either JSONAPI or REST but rather something in between, a hybrid. Then this addon is for you! It enables using metadata with query responses.
+
+```ember install ember-json-serializer-meta```
+
+## How it works
+
+### API response
+
+```
+  {
+    status: {
+      errorCode: 0
+    },
+    records: [{
+      id: 1,
+      name: 'Tomster'
+    }],
+    pagination: {
+
+    }
+  }
+```
+
+Then such payload is by default not supported by the JSONSerializer, it is impossible to extract with default `extractMeta` hook.
+
+Here comes in the addon which adds another serializer hook for extracting meta for query responses with JSONSerializer.
+
+```app/serializers/user.js
+import JSONSerializerWithMeta from 'ember-json-serializer-meta';
+
+export default JSONSerializerWithMeta.extend({
+  extractMetaQueryResponse(store, typeClass, payload) {
+    if (payload && payload.pagination) {
+      return payload.pagination;
+    }
+  }
+});
+```
+
+Default implementation of extractMetaQueryResponse will lookup `meta` property.
+
+```
+  {
+    ...
+    meta: {
+      my: 'meta'
+    }
+    ...
+  }
+```
+
+# Contribution
 
 ## Installation
 
