@@ -25,7 +25,7 @@ So I heard you are working with custom APIs that are not either JSONAPI or REST 
   }
 ```
 
-Then such payload is by default not supported by the JSONSerializer, it is impossible to extract with default `extractMeta` hook.
+ By default such payload is not supported by the JSONSerializer, it is impossible to extract metadata with default `extractMeta` hook.
 
 Here comes in the addon which adds another serializer hook for extracting meta for query responses with JSONSerializer.
 
