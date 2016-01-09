@@ -3,10 +3,10 @@ import { module } from 'qunit';
 import Ember from 'ember';
 import DS from 'ember-data';
 import setupStore from '../../helpers/store';
-import JSONSerializerWithMeta from 'ember-json-serializer-meta';
+import extractMetaQueryResponseMixin from 'ember-json-serializer-meta';
 
 const { run } = Ember;
-const { Model, attr } = DS;
+const { JSONSerializer, Model, attr } = DS;
 
 let env;
 module('Unit | Serializer | application', {
@@ -28,7 +28,7 @@ module('Unit | Serializer | application', {
 });
 
 test('it should extract meta from query response', function(assert) {
-  env.registry.register('serializer:user', JSONSerializerWithMeta.extend({
+  env.registry.register('serializer:user', JSONSerializer.extend(extractMetaQueryResponseMixin, {
     extractMetaQueryResponse(/*store, modelClass, payload*/) {
       let meta = this._super(...arguments);
       meta.authors.push('Tomhuda');

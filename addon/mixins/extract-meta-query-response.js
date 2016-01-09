@@ -1,10 +1,8 @@
-import DS from 'ember-data';
 import Ember from 'ember';
 
-const { JSONSerializer } = DS;
 const { assert } = Ember;
 
-export default JSONSerializer.extend({
+export default Ember.Mixin.create({
 
   /**
     `extractMetaQueryResponse` is used to deserialize any meta information in the
