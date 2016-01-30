@@ -11,6 +11,24 @@ So I heard you are working with custom APIs that are not either JSONAPI or REST 
 
 ## How it works
 
+### Flow chart
+
+```
+┌─ extractMetaFindAllResponse() ─────┐
+├─ extractMetaFindHasManyResponse() ─┼─ extractMetaArrayResponse() ─────────────────────────────────┐
+├─ extractMetaFindManyResponse() ────┤                                                              │
+├─ extractMetaQueryResponse() ───────┘                                                              │
+│                                                                                                   │
+├─ extractMetaFindRecordResponse() ─────────────────────────────────┐                               │
+normalizeResponse() - normalizeMetaResponse() ─┼─ extractMetaFindBelongsToResponse() ──────────────────────────────┤                               │
+├─ extractMetaQueryRecordResponse() ────────────────────────────────┤                               │
+│                                                                   │                               │
+├─ extractMetaCreateRecordResponse() ─┐                             │                               │
+├─ extractMetaDeleteRecordResponse() ─┼─ extractMetaSaveResponse() ─┴─ extractMetaSingleResponse() ─┴─ extractMetaResponse()
+└─ extractMetaUpdateRecordResponse() ─┘
+
+```
+
 ### API response
 
 ```
