@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/raido/ember-json-serializer-meta.svg)](https://travis-ci.org/raido/ember-json-serializer-meta)
 [![npm version](https://badge.fury.io/js/ember-json-serializer-meta.svg)](https://badge.fury.io/js/ember-json-serializer-meta)
 
-So I heard you are working with custom APIs that are not either JSONAPI or REST but rather something in between, a hybrid. Then this addon is for you! It enables using metadata with query responses.
+So I heard you are working with custom APIs that are not either JSONAPI or REST but rather something in between, a hybrid. Then this addon is for you! It enables extracting metadata for all the Ember Data normalize*Response hooks.
 
 ```ember install ember-json-serializer-meta```
 
@@ -48,13 +48,13 @@ normalizeResponse() - normalizeMetaResponse() ─┼─ extractMetaFindBelongsTo
 
  By default such payload is not supported by the JSONSerializer, it is impossible to extract metadata with default `extractMeta` hook.
 
-Here comes in the addon which adds another serializer hook for extracting meta for query responses with JSONSerializer.
+Here comes in the addon which adds another serializer hook for extracting meta for your custom API responses with JSONSerializer.
 
 ```app/serializers/user.js
-import extractMetaQueryResponseMixin from 'ember-json-serializer-meta';
+import extractMetaResponseMixin from 'ember-json-serializer-meta';
 
-export default DS.JSONSerializer.extend(extractMetaQueryResponseMixin, {
-  extractMetaQueryResponse(store, typeClass, payload) {
+export default DS.JSONSerializer.extend(extractMetaResponseMixin, {
+  extractMetaResponse(store, typeClass, payload/*, id, requestType*/) {
     if (payload && payload.pagination) {
       return payload.pagination;
     }
@@ -62,7 +62,7 @@ export default DS.JSONSerializer.extend(extractMetaQueryResponseMixin, {
 });
 ```
 
-Default implementation of extractMetaQueryResponse will lookup `meta` property.
+Default implementation of extractMetaResponse will lookup `meta` property.
 
 ```
   {
