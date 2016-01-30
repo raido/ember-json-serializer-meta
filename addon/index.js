@@ -1,3 +1,3 @@
-import extractMetaQueryResponseMixin from './mixins/extract-meta-query-response';
+import extractMetaResponseMixin from './mixins/extract-meta-response';
 
-export default extractMetaQueryResponseMixin;
+export default extractMetaResponseMixin;
