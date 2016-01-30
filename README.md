@@ -14,18 +14,18 @@ So I heard you are working with custom APIs that are not either JSONAPI or REST 
 ### Flow chart
 
 ```
-┌─ extractMetaFindAllResponse() ─────┐
-├─ extractMetaFindHasManyResponse() ─┼─ extractMetaArrayResponse() ─────────────────────────────────┐
-├─ extractMetaFindManyResponse() ────┤                                                              │
-├─ extractMetaQueryResponse() ───────┘                                                              │
-│                                                                                                   │
-├─ extractMetaFindRecordResponse() ─────────────────────────────────┐                               │
+                                               ┌─ extractMetaFindAllResponse() ─────┐
+                                               ├─ extractMetaFindHasManyResponse() ─┼─ extractMetaArrayResponse() ─────────────────────────────────┐
+                                               ├─ extractMetaFindManyResponse() ────┤                                                              │
+                                               ├─ extractMetaQueryResponse() ───────┘                                                              │
+                                               │                                                                                                   │
+                                               ├─ extractMetaFindRecordResponse() ─────────────────────────────────┐                               │
 normalizeResponse() - normalizeMetaResponse() ─┼─ extractMetaFindBelongsToResponse() ──────────────────────────────┤                               │
-├─ extractMetaQueryRecordResponse() ────────────────────────────────┤                               │
-│                                                                   │                               │
-├─ extractMetaCreateRecordResponse() ─┐                             │                               │
-├─ extractMetaDeleteRecordResponse() ─┼─ extractMetaSaveResponse() ─┴─ extractMetaSingleResponse() ─┴─ extractMetaResponse()
-└─ extractMetaUpdateRecordResponse() ─┘
+                                               ├─ extractMetaQueryRecordResponse() ────────────────────────────────┤                               │
+                                               │                                                                   │                               │
+                                               ├─ extractMetaCreateRecordResponse() ─┐                             │                               │
+                                               ├─ extractMetaDeleteRecordResponse() ─┼─ extractMetaSaveResponse() ─┴─ extractMetaSingleResponse() ─┴─ extractMetaResponse()
+                                               └─ extractMetaUpdateRecordResponse() ─┘
 
 ```
 
