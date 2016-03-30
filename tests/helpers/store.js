@@ -1,14 +1,21 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import Owner from './owner';
 
 export default function setupStore(options) {
-  let container, registry;
+  let container, registry, owner;
   let env = {};
   options = options || {};
 
   if (Ember.Registry) {
     registry = env.registry = new Ember.Registry();
-    container = env.container = registry.container();
+    owner = Owner.create({
+      __registry__: registry
+    });
+    container = env.container = registry.container({
+      owner
+    });
+    owner.__container__ = container;
   } else {
     container = env.container = new Ember.Container();
     registry = env.registry = container;
@@ -30,9 +37,9 @@ export default function setupStore(options) {
     adapter = '-ember-data-test-custom';
   }
 
+  // jscs: disable requireTemplateStringsForConcatenation
   for (let prop in options) {
-    let modelName = Ember.String.dasherize(prop);
-    registry.register(`model:${modelName}`, options[prop]);
+    registry.register('model:' + Ember.String.dasherize(prop), options[prop]);
   }
 
   registry.register('service:store', DS.Store.extend({
