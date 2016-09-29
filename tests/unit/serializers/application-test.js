@@ -13,7 +13,7 @@ module('Unit | Serializer | application', {
   // Specify the other units that are required for this test.
   needs: ['serializer:application'],
 
-  setup() {
+  beforeEach() {
     let user = Model.extend({
       name: attr()
     });
@@ -22,7 +22,7 @@ module('Unit | Serializer | application', {
     });
   },
 
-  teardown() {
+  afterEach() {
     run(env.store, 'destroy');
   }
 });
