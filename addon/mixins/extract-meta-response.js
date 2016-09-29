@@ -28,7 +28,7 @@ export default Ember.Mixin.create({
     @public
   */
 
-  extractMetaResponse(store, primaryModelClass, payload/*, id, requestType */) {
+  extractMetaResponse(store, primaryModelClass, payload/* , id, requestType */) {
     if (payload && payload.hasOwnProperty('meta')) {
       let { meta } = payload;
       delete payload.meta;
@@ -61,7 +61,7 @@ export default Ember.Mixin.create({
     @public
   */
 
-  extractMetaQueryResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaQueryResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaArrayResponse(...arguments);
   },
 
@@ -76,7 +76,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaFindAllResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaFindAllResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaArrayResponse(...arguments);
   },
 
@@ -91,7 +91,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaFindHasManyResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaFindHasManyResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaArrayResponse(...arguments);
   },
 
@@ -106,7 +106,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaFindManyResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaFindManyResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaArrayResponse(...arguments);
   },
 
@@ -121,7 +121,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaArrayResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaArrayResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaResponse(...arguments);
   },
 
@@ -136,7 +136,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaSaveResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaSaveResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaSingleResponse(...arguments);
   },
 
@@ -151,7 +151,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaSingleResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaSingleResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaResponse(...arguments);
   },
 
@@ -166,7 +166,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaFindRecordResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaFindRecordResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaSingleResponse(...arguments);
   },
 
@@ -181,7 +181,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaFindBelongsToResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaFindBelongsToResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaSingleResponse(...arguments);
   },
 
@@ -196,7 +196,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaQueryRecordResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaQueryRecordResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaSingleResponse(...arguments);
   },
 
@@ -211,7 +211,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaCreateRecordResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaCreateRecordResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaSaveResponse(...arguments);
   },
 
@@ -226,7 +226,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaDeleteRecordResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaDeleteRecordResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaSaveResponse(...arguments);
   },
 
@@ -241,7 +241,7 @@ export default Ember.Mixin.create({
     @return {Object}
    */
 
-  extractMetaUpdateRecordResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  extractMetaUpdateRecordResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     return this.extractMetaSaveResponse(...arguments);
   },
 
@@ -292,13 +292,13 @@ export default Ember.Mixin.create({
     @return {Object} JSON-API Document
   */
 
-  normalizeResponse(/*store, primaryModelClass, payload, id, requestType*/) {
+  normalizeResponse(/* store, primaryModelClass, payload, id, requestType*/) {
     let meta = this.normalizeMetaResponse(...arguments);
     let documentHash = this._super(...arguments);
 
     if (meta) {
       // jscs: disable requireTemplateStringsForConcatenation
-      assert('The `meta` returned from `extractMeta` has to be an object, not "' + Ember.typeOf(meta) + '".', Ember.typeOf(meta) === 'object');
+      assert(`The \`meta\` returned from \`extractMeta\` has to be an object, not "${  Ember.typeOf(meta)  }".`, Ember.typeOf(meta) === 'object');
       documentHash.meta = meta;
     }
     return documentHash;

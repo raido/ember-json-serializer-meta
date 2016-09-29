@@ -37,9 +37,8 @@ export default function setupStore(options) {
     adapter = '-ember-data-test-custom';
   }
 
-  // jscs: disable requireTemplateStringsForConcatenation
   for (let prop in options) {
-    registry.register('model:' + Ember.String.dasherize(prop), options[prop]);
+    registry.register(`model:${Ember.String.dasherize(prop)}`, options[prop]);
   }
 
   registry.register('service:store', DS.Store.extend({
@@ -66,7 +65,7 @@ export default function setupStore(options) {
   return env;
 }
 
-export {setupStore};
+export { setupStore };
 
 export function createStore(options) {
   return setupStore(options).store;

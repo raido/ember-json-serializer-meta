@@ -29,7 +29,7 @@ module('Unit | Serializer | application', {
 
 test('it should extract meta from query response', function(assert) {
   env.registry.register('serializer:user', JSONSerializer.extend(extractMetaQueryResponseMixin, {
-    extractMetaQueryResponse(/*store, modelClass, payload*/) {
+    extractMetaQueryResponse(/* store, modelClass, payload */) {
       let meta = this._super(...arguments);
       meta.authors.push('Tomhuda');
       return meta;

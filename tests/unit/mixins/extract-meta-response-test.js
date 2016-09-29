@@ -22,9 +22,7 @@ test('normalizeMetaResponse -> extractMetaFindAllResponse -> extractMetaArrayRes
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaFindHasManyResponse -> extractMetaArrayResponse -> extractMetaResponse', function(assert) {
@@ -45,9 +43,7 @@ test('normalizeMetaResponse -> extractMetaFindHasManyResponse -> extractMetaArra
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaFindManyResponse -> extractMetaArrayResponse -> extractMetaResponse', function(assert) {
@@ -68,9 +64,7 @@ test('normalizeMetaResponse -> extractMetaFindManyResponse -> extractMetaArrayRe
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaQueryResponse -> extractMetaArrayResponse -> extractMetaResponse', function(assert) {
@@ -91,9 +85,7 @@ test('normalizeMetaResponse -> extractMetaQueryResponse -> extractMetaArrayRespo
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaFindRecordResponse -> extractMetaSingleResponse -> extractMetaResponse', function(assert) {
@@ -114,9 +106,7 @@ test('normalizeMetaResponse -> extractMetaFindRecordResponse -> extractMetaSingl
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaFindBelongsToResponse -> extractMetaSingleResponse -> extractMetaResponse', function(assert) {
@@ -137,9 +127,7 @@ test('normalizeMetaResponse -> extractMetaFindBelongsToResponse -> extractMetaSi
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaQueryRecordToResponse -> extractMetaSingleResponse -> extractMetaResponse', function(assert) {
@@ -160,9 +148,7 @@ test('normalizeMetaResponse -> extractMetaQueryRecordToResponse -> extractMetaSi
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaCreateRecordToResponse -> extractMetaSaveResponse ->extractMetaSingleResponse -> extractMetaResponse', function(assert) {
@@ -187,9 +173,7 @@ test('normalizeMetaResponse -> extractMetaCreateRecordToResponse -> extractMetaS
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaUpdateRecordToResponse -> extractMetaSaveResponse ->extractMetaSingleResponse -> extractMetaResponse', function(assert) {
@@ -214,9 +198,7 @@ test('normalizeMetaResponse -> extractMetaUpdateRecordToResponse -> extractMetaS
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
 
 test('normalizeMetaResponse -> extractMetaDeleteRecordToResponse -> extractMetaSaveResponse ->extractMetaSingleResponse -> extractMetaResponse', function(assert) {
@@ -241,7 +223,5 @@ test('normalizeMetaResponse -> extractMetaDeleteRecordToResponse -> extractMetaS
       return {};
     }
   });
-  let subject = factory.create();
-  let result = subject.normalizeMetaResponse.apply(subject, originalArguments);
-  assert.deepEqual(result, {});
+  assert.deepEqual(factory.create().normalizeMetaResponse(...originalArguments), {});
 });
