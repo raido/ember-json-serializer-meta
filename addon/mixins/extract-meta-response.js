@@ -297,8 +297,7 @@ export default Ember.Mixin.create({
     let documentHash = this._super(...arguments);
 
     if (meta) {
-      // jscs: disable requireTemplateStringsForConcatenation
-      assert(`The \`meta\` returned from \`extractMeta\` has to be an object, not "${  Ember.typeOf(meta)  }".`, Ember.typeOf(meta) === 'object');
+      assert(`The \`meta\` returned from \`extractMeta*Response\` has to be an object, not "${Ember.typeOf(meta)}".`, Ember.typeOf(meta) === 'object');
       documentHash.meta = meta;
     }
     return documentHash;
