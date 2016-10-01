@@ -71,7 +71,7 @@ test('it should delegate extractMetaFindManyResponse to extractMetaArrayResponse
   assert.deepEqual(factory.create().extractMetaFindManyResponse(...defaultArgs), meta);
 });
 
-test('it should delegate extractMetaArrayResponse to extractMetaArrayResponse', function(assert) {
+test('it should delegate extractMetaArrayResponse to extractMetaResponse', function(assert) {
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaResponse() {
