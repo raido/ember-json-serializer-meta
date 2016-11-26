@@ -16,6 +16,14 @@ module('Unit | Mixin | extract meta response', {
   }
 });
 
+/**
+ * Helper method to create input arguments for specific rquests like
+ * findRecord, queryRecord etc.
+ *
+ * @private
+ * @return {Array}
+ */
+
 function argumentsFor(request) {
   return [{}, {}, {
     meta
