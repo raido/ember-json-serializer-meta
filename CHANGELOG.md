@@ -7,17 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## 1.0.0 - 2016-11-26
+## [1.0.0] - 2016-11-26
 ### Changed
 * Move from JSHint to ESLint
 * Update dependencies
 * Rewrite unit tests keeping a bit more SRP in mind
 
-## 0.2.0 - 2016-01-30
+## [0.2.0] - 2016-01-30
 ### Added
 * Hooks for extracting meta for specific requests like findQuery, queryRecord etc. See README.md
 
-## 0.1.0 - 2016-01-09
+## [0.1.0] - 2016-01-09
 ### Added
 Initial release
 
