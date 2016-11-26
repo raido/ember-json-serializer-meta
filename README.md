@@ -76,6 +76,8 @@ Default implementation of extractMetaResponse will lookup `meta` property.
 
 # Contribution
 
+**This project follows [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).**
+
 ## Installation
 
 * `git clone` this repository
