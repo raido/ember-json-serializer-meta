@@ -1,6 +1,6 @@
 {
   "name": "ember-json-serializer-meta",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Extensive extract metadata support for JSONSerializer.",
   "directories": {
     "doc": "doc",
