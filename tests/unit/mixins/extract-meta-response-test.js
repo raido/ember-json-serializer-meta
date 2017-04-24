@@ -30,16 +30,27 @@ function argumentsFor(request) {
   }, null, request];
 }
 
+/**
+ * @param {ArgumentsList} args
+ */
+function mapToArray(args) {
+  let arr = [];
+  for(let k in args) {
+    arr.push(args[k]);
+  }
+  return arr;
+}
+
 test('it should extract meta from default key: meta', function(assert) {
   let factory = Ember.Object.extend(ExtractMetaResponseMixin);
-  assert.deepEqual(factory.create().extractMetaResponse(...defaultArgs), meta);
+  assert.deepEqual(factory.create().extractMetaResponse.apply(factory, defaultArgs), meta);
 });
 
 test('it should delegate extractMetaQueryResponse to extractMetaArrayResponse', function(assert) {
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaArrayResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -50,7 +61,7 @@ test('it should delegate extractMetaFindAllResponse to extractMetaArrayResponse'
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaArrayResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -61,7 +72,7 @@ test('it should delegate extractMetaFindHasManyResponse to extractMetaArrayRespo
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaArrayResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -72,7 +83,7 @@ test('it should delegate extractMetaFindManyResponse to extractMetaArrayResponse
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaArrayResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -83,7 +94,7 @@ test('it should delegate extractMetaArrayResponse to extractMetaResponse', funct
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -94,7 +105,7 @@ test('it should delegate extractMetaSaveResponse to extractMetaSingleResponse', 
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaSingleResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -105,7 +116,7 @@ test('it should delegate extractMetaSingleResponse to extractMetaResponse', func
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -116,7 +127,7 @@ test('it should delegate extractMetaFindRecordResponse to extractMetaSingleRespo
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaSingleResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -127,7 +138,7 @@ test('it should delegate extractMetaFindBelongsToResponse to extractMetaSingleRe
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaSingleResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -138,7 +149,7 @@ test('it should delegate extractMetaQueryRecordResponse to extractMetaSingleResp
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaSingleResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -149,7 +160,7 @@ test('it should delegate extractMetaCreateRecordResponse to extractMetaSaveRespo
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaSaveResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -160,7 +171,7 @@ test('it should delegate extractMetaDeleteRecordResponse to extractMetaSaveRespo
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaSaveResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -171,7 +182,7 @@ test('it should delegate extractMetaUpdateRecordResponse to extractMetaSaveRespo
   assert.expect(2);
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaSaveResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
       return meta;
     }
   });
@@ -183,7 +194,7 @@ test('it should delegate normalizeMetaResponse to extractMetaFindRecordResponse 
   let findRecordArguments = argumentsFor('findRecord');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaFindRecordResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -195,7 +206,7 @@ test('it should delegate normalizeMetaResponse to extractMetaQueryRecordResponse
   let findRecordArguments = argumentsFor('queryRecord');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaQueryRecordResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -207,7 +218,7 @@ test('it should delegate normalizeMetaResponse to extractMetaFindAllResponse for
   let findRecordArguments = argumentsFor('findAll');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaFindAllResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -219,7 +230,7 @@ test('it should delegate normalizeMetaResponse to extractMetaFindBelongsToRespon
   let findRecordArguments = argumentsFor('findBelongsTo');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaFindBelongsToResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -231,7 +242,7 @@ test('it should delegate normalizeMetaResponse to extractMetaFindHasManyResponse
   let findRecordArguments = argumentsFor('findHasMany');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaFindHasManyResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -243,7 +254,7 @@ test('it should delegate normalizeMetaResponse to extractMetaFindManyResponse fo
   let findRecordArguments = argumentsFor('findMany');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaFindManyResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -255,7 +266,7 @@ test('it should delegate normalizeMetaResponse to extractMetaQueryResponse for r
   let findRecordArguments = argumentsFor('query');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaQueryResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -267,7 +278,7 @@ test('it should delegate normalizeMetaResponse to extractMetaCreateRecordRespons
   let findRecordArguments = argumentsFor('createRecord');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaCreateRecordResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -279,7 +290,7 @@ test('it should delegate normalizeMetaResponse to extractMetaDeleteRecordRespons
   let findRecordArguments = argumentsFor('deleteRecord');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaDeleteRecordResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -291,7 +302,7 @@ test('it should delegate normalizeMetaResponse to extractMetaUpdateRecordRespons
   let findRecordArguments = argumentsFor('updateRecord');
   let factory = Ember.Object.extend(ExtractMetaResponseMixin, {
     extractMetaUpdateRecordResponse() {
-      assert.deepEqual(Array.from(arguments), findRecordArguments);
+      assert.deepEqual(mapToArray(arguments), findRecordArguments);
       return meta;
     }
   });
@@ -302,11 +313,11 @@ test('it should call super normalizeResponse and normalizeMetaResponse', functio
   assert.expect(2);
   Ember.Object.extend({
     normalizeResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
     }
   }, ExtractMetaResponseMixin, {
     normalizeMetaResponse() {
-      assert.deepEqual(Array.from(arguments), defaultArgs);
+      assert.deepEqual(mapToArray(arguments), defaultArgs);
     }
   }).create().normalizeResponse(...defaultArgs);
 });
