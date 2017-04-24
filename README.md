@@ -82,7 +82,6 @@ Default implementation of extractMetaResponse will lookup `meta` property.
 
 * `git clone` this repository
 * `yarn install`
-* `bower install`
 
 ## Running
 
