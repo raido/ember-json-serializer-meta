@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.1.1] - 2017-04-24
+### Fixed
+- Remove bower install instructions from readme.
+
 ## [1.1.0] - 2017-04-24
 ### Changed
 - Upgrade to Ember-CLI v2.13 for Babel 6 support.
@@ -25,7 +29,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 Initial release
 
-[Unreleased]: https://github.com/raido/ember-json-serializer-meta/compare/1.1.0...develop
+[Unreleased]: https://github.com/raido/ember-json-serializer-meta/compare/1.1.1...develop
+[1.1.1]: https://github.com/raido/ember-json-serializer-meta/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/raido/ember-json-serializer-meta/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/raido/ember-json-serializer-meta/compare/0.2.0...1.0.0
 [0.2.0]: https://github.com/raido/ember-json-serializer-meta/compare/0.1.0...0.2.0
