@@ -43,7 +43,7 @@ function mapToArray(args) {
 
 test('it should extract meta from default key: meta', function(assert) {
   let factory = Ember.Object.extend(ExtractMetaResponseMixin);
-  assert.deepEqual(factory.create().extractMetaResponse.apply(factory, defaultArgs), meta);
+  assert.deepEqual(factory.create().extractMetaResponse(...defaultArgs), meta);
 });
 
 test('it should delegate extractMetaQueryResponse to extractMetaArrayResponse', function(assert) {
