@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2017-09-10
+### Changed
+- Update to Ember-CLI 2.15 and Ember.js 2.15
+
 ## [1.1.1] - 2017-04-24
 ### Fixed
 - Remove bower install instructions from readme.
@@ -29,7 +33,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 Initial release
 
-[Unreleased]: https://github.com/raido/ember-json-serializer-meta/compare/1.1.1...develop
+[Unreleased]: https://github.com/raido/ember-json-serializer-meta/compare/master...develop
+[1.2.0]: https://github.com/raido/ember-json-serializer-meta/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/raido/ember-json-serializer-meta/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/raido/ember-json-serializer-meta/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/raido/ember-json-serializer-meta/compare/0.2.0...1.0.0
